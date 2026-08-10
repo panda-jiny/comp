@@ -1,0 +1,130 @@
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2")
+    format("woff2");
+  font-weight: 800;
+  font-display: swap;
+}
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+/* reset end*/
+body {
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.wrap {
+  height: calc(100vh + 0.4px);
+}
+/* header */
+header {
+  width: 100%;
+  height: 12%;
+  padding: 4px 2px;
+  position: fixed;
+  z-index: 100;
+  box-shadow:
+    rgba(255, 255, 255, 0.25) 0px 30px 60px -12px inset,
+    rgba(243, 243, 243, 0.3) 0px 18px 2px -18px inset;
+  transition: 600ms;
+  opacity: 0.1;
+  animation: hslide forwards;
+  animation-timeline: scroll();
+}
+
+@keyframes hslide {
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+header .h_inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+}
+.box_hbtn {
+  background-color: #212121;
+}
+.box_trans {
+  background-color: #666762;
+}
+.box_glow {
+  background-color: #4a4a48;
+}
+section {
+  width: 100%;
+  height: 100%;
+}
+.box_inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrap > input {
+  display: none;
+}
+label {
+  color: #eeede4;
+  width: 33%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 3vw;
+  transition: 200ms;
+  border-radius: 14px;
+}
+/* 그룹디스플레이 - 버튼설정*/
+#hbtn:checked ~ header .h_inner label[for="hbtn"] {
+  background-color: rgba(200, 247, 247, 0.3);
+}
+#trans:checked ~ header .h_inner label[for="trans"] {
+  background-color: rgba(200, 247, 247, 0.3);
+}
+#anime:checked ~ header .h_inner label[for="anime"] {
+  background-color: rgba(200, 247, 247, 0.3);
+}
+/* 그룹디스플레이 - 디스플레이 설정 */
+section {
+  display: none;
+}
+#hbtn:checked ~ .box_hbtn,
+#trans:checked ~ .box_trans,
+#anime:checked ~ .box_glow {
+  display: block;
+}

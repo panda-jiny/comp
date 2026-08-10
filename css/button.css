@@ -1,0 +1,42 @@
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cards .one {
+  background-color: #f43f5e;
+}
+.cards .two {
+  background-color: #f98130;
+}
+.cards .three {
+  background-color: #ed4b4b;
+}
+.cards .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 60px;
+  width: 200px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: 400ms;
+}
+.card p {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  font-size: 1em;
+}
+.card:hover {
+  transform: scale(1.1, 1.1);
+}
+.cards:hover > .card:not(:hover) {
+  transform: scale(0.9, 0.9);
+  filter: blur(10px);
+}

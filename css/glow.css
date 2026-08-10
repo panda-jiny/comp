@@ -1,0 +1,75 @@
+.gbtn {
+  padding: 20px 40px;
+  width: 40%;
+  height: 50%;
+  border: none;
+  outline: none;
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  font-size: 3vw;
+  line-height: 180%;
+  color: #fff;
+  position: relative;
+  z-index: 0;
+  border-radius: 12px;
+}
+.gbtn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #212121;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+.gbtn::before {
+  content: "";
+  background: linear-gradient(
+    -45deg,
+    #eeecff,
+    #a5c0f5,
+    #9b99e0,
+    #4bdcde,
+    #00ffd5,
+    #9152c5,
+    #eeecff
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  filter: blur(8px);
+  animation: glow 10s linear infinite;
+  transition: opacity 300ms ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+@keyframes glow {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.gbtn:hover::before {
+  opacity: 1;
+}
+.gbtn:active:after {
+  background: transparent;
+}
+.gbtn:active {
+  color: #212121;
+  font-weight: bold;
+}

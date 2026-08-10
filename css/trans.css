@@ -1,0 +1,92 @@
+.box_trans .box_inner .box {
+  width: 70%;
+  height: 70%;
+  display: flex;
+  justify-content: space-between;
+  transition: 400ms;
+  position: relative;
+}
+.inbox {
+  width: 33%;
+  height: 90%;
+  overflow: hidden;
+  transition: 400ms;
+  position: relative;
+  border-radius: 10px;
+  z-index: 1;
+}
+.inbox:nth-child(1) {
+  background: url(../img/i1.jpg) center/cover no-repeat;
+  animation: odd 9s infinite;
+}
+.inbox:nth-child(2) {
+  background: url(../img/i2.jpg) center/cover no-repeat;
+  animation: even 9s infinite;
+}
+.inbox:nth-child(3) {
+  background: url(../img/i3.jpg) center/cover no-repeat;
+  animation: odd 9s infinite;
+}
+@keyframes odd {
+  0% {
+    top: 0;
+  }
+  33% {
+    top: 16%;
+  }
+  66% {
+    top: 0;
+  }
+  100% {
+    top: 0;
+  }
+}
+@keyframes even {
+  0% {
+    top: 0;
+  }
+  33% {
+    top: 0;
+  }
+  66% {
+    top: 16%;
+  }
+  100% {
+    top: 0;
+  }
+}
+.inbox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url(../img/i4.jpg) center/cover no-repeat;
+  background-attachment: fixed;
+  opacity: 0;
+  transition: 400ms ease-in-out 300ms;
+}
+.inbox::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url(../img/i5.jpg) center/cover no-repeat;
+  background-attachment: fixed;
+  animation: pic 9s infinite;
+}
+@keyframes pic {
+  0% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.box:hover .inbox::before {
+  opacity: 1;
+}
