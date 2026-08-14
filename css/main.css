@@ -40,7 +40,7 @@ body {
   display: none;
 }
 .wrap {
-  height: calc(100vh + 0.4px);
+  height: calc(100vh + 0.6px);
 }
 /* header */
 header {
@@ -108,6 +108,49 @@ label {
   font-size: 3vw;
   transition: 200ms;
   border-radius: 14px;
+  position: relative;
+}
+.ripple {
+  height: 100%;
+  aspect-ratio: 1/1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+.ripple div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 4px solid #eeede4;
+  border-radius: 50%;
+  animation: ripple 1s cubic-bezier(0.03, 0.54, 0.6, 0.63) infinite;
+}
+.ripple div:nth-child(2) {
+  animation-delay: 500ms;
+}
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  5% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  5.1% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 88%;
+    height: 88%;
+    opacity: 0;
+  }
 }
 /* 그룹디스플레이 - 버튼설정*/
 #hbtn:checked ~ header .h_inner label[for="hbtn"] {
@@ -118,6 +161,15 @@ label {
 }
 #anime:checked ~ header .h_inner label[for="anime"] {
   background-color: rgba(200, 247, 247, 0.3);
+}
+#hbtn:checked ~ header .h_inner label[for="hbtn"] .ripple {
+  display: block;
+}
+#trans:checked ~ header .h_inner label[for="trans"] .ripple {
+  display: block;
+}
+#anime:checked ~ header .h_inner label[for="anime"] .ripple {
+  display: block;
 }
 /* 그룹디스플레이 - 디스플레이 설정 */
 section {
